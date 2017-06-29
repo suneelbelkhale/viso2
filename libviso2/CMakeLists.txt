@@ -4,7 +4,13 @@ project(libviso2)
 find_package(catkin REQUIRED )
 
 #set(CMAKE_CXX_FLAGS "-msse3")
-add_definitions(-msse3)
+#add_definitions(-msse3)
+
+option(ARM_CROSS_COMPILATION "ARM Cross Compilation" OFF)
+
+if(ARM_CROSS_COMPILATION)
+  SET(CMAKE_SYSTEM_PROCESSOR arm)
+endif(ARM_CROSS_COMPILATION)
 
 catkin_package(
   INCLUDE_DIRS libviso2/src
